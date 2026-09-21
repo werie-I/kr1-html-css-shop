@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Учебный интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+
 </head>
 
 <body>
@@ -52,24 +54,48 @@
         <section class="section" id="popular">
             <h2>Популярные товары</h2>
 
-            <article class="product-card">
-                <h3>Товар 1</h3>
-                <p>Краткое описание учебного товара.</p>
-                <p>Цена: 1000 руб.</p>
-            </article>
+    <article class="product-card">
+        <h3>Товар 1</h3>
+        <p>Краткое описание учебного товара.</p>
+        <p>Цена: 1000 руб.</p>
 
-            <article class="product-card">
-                <h3>Товар 2</h3>
-                <p>Краткое описание учебного товара.</p>
-                <p>Цена: 1500 руб.</p>
-            </article>
+        <button
+            class="button product-card__button"
+            type="button"
+            data-product="Товар 1"
+        >
+            Заказать
+        </button>
+    </article>
 
-            <article class="product-card">
-                <h3>Товар 3</h3>
-                <p>Краткое описание учебного товара.</p>
-                <p>Цена: 2000 руб.</p>
-            </article>
-        </section>
+    <article class="product-card">
+        <h3>Товар 2</h3>
+        <p>Краткое описание учебного товара.</p>
+        <p>Цена: 1500 руб.</p>
+
+        <button
+            class="button product-card__button"
+            type="button"
+            data-product="Товар 2"
+        >
+            Заказать
+        </button>
+    </article>
+
+    <article class="product-card">
+        <h3>Товар 3</h3>
+        <p>Краткое описание учебного товара.</p>
+        <p>Цена: 2000 руб.</p>
+
+        <button
+            class="button product-card__button"
+            type="button"
+            data-product="Товар 3"
+        >
+            Заказать
+        </button>
+    </article>
+</section>
 
         <aside class="aside-info">
             <h2>Информация для студентов</h2>
@@ -82,6 +108,113 @@
         </aside>
 
     </main>
+    <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+
+    <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+        <button
+            class="modal__close"
+            type="button"
+            aria-label="Закрыть окно"
+            data-modal-close
+        >
+            &times;
+        </button>
+
+        <h2 id="orderModalTitle">Оформление заявки</h2>
+
+        <form class="order-form" id="orderForm" novalidate>
+            <input type="hidden" id="productInput" name="product">
+
+            <div class="form-field">
+                <label for="nameInput">Имя</label>
+                <input
+                    type="text"
+                    id="nameInput"
+                    name="name"
+                    placeholder="Введите имя"
+                    required
+                >
+                <span class="form-error" id="nameError"></span>
+            </div>
+
+            <div class="form-field">
+                <label for="phoneInput">Телефон</label>
+                <input
+                    type="tel"
+                    id="phoneInput"
+                    name="phone"
+                    placeholder="+7 (___) ___-__-__"
+                    required
+                >
+                <span class="form-error" id="phoneError"></span>
+            </div>
+
+            <div class="form-field">
+                <label for="emailInput">Email</label>
+                <input
+                    type="email"
+                    id="emailInput"
+                    name="email"
+                    placeholder="example@mail.ru"
+                    required
+                >
+                <span class="form-error" id="emailError"></span>
+            </div>
+            <div class="form-field">
+    <label for="dateInput">Дата</label>
+    <input
+        type="date"
+        id="dateInput"
+        name="date"
+        required
+    >
+    <span class="form-error" id="dateError"></span>
+</div>
+
+<div class="form-field">
+    <label for="topicInput">Товар</label>
+    <select id="topicInput" name="topic" required>
+        <option value="">Выберите товар</option>
+        <option value="Товар 1">Товар 1</option>
+        <option value="Товар 2">Товар 2</option>
+        <option value="Товар 3">Товар 3</option>
+    </select>
+    <span class="form-error" id="topicError"></span>
+</div>
+
+<div class="form-field">
+    <label>
+        <input
+            type="checkbox"
+            id="consentInput"
+            name="consent"
+            required
+        >
+        Я согласен(на) на обработку данных
+    </label>
+    <span class="form-error" id="consentError"></span>
+</div>
+
+            <div class="form-field">
+                <label for="commentInput">Комментарий</label>
+                <textarea
+                    id="commentInput"
+                    name="comment"
+                    rows="4"
+                    placeholder="Ваш комментарий"
+                ></textarea>
+                <span class="form-error" id="commentError"></span>
+            </div>
+
+            <button class="button" type="submit">
+                Отправить заявку
+            </button>
+            <p class="success-message" id="successMessage"></p>
+</form>
+        </form>
+    </div>
+</div>
 
     <footer id="contacts">
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
