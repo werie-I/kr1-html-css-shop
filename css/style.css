@@ -126,3 +126,83 @@ footer {
     border-left: 4px solid #0057b8;
     background-color: #f7f7f7;
 }
+
+/* Модальное окно */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.modal.is-open {
+    display: block;
+}
+
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+    position: relative;
+    width: min(500px, calc(100% - 32px));
+    margin: 60px auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #555555;
+}
+
+.modal__close:hover {
+    color: #000000;
+}
+
+
+/* Форма */
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: 2px solid #0057b8;
+    border-color: #0057b8;
+}
+
+.form-error {
+    min-height: 18px;
+    color: #c62828;
+    font-size: 14px;
+}
