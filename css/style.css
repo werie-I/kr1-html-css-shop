@@ -323,3 +323,40 @@ footer {
     background-color: var(--color-success-bg);
     border-radius: var(--radius-sm);
 }
+
+/* ===============================
+   12. Хлебные крошки
+   =============================== */
+
+.breadcrumbs {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-sm) 0;
+}
+
+.breadcrumbs a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span::before {
+    content: " / ";
+    color: var(--color-text);
+}
+
+
+/* ===============================
+   13. Якорные ссылки
+   =============================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+:target {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 4px;
+}
