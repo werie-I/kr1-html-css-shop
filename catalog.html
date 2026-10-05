@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+    <meta
+        name="description"
+        content="Каталог товаров учебного интернет-магазина."
+    >
     <title>Каталог товаров — Учебный интернет-магазин</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -11,61 +14,166 @@
 
 <body>
 
-<header class="header">
-    <div class="container">
-        <nav class="nav">
-            <a href="index.html">Главная</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="index.html#advantages">Преимущества</a>
-            <a href="index.html#popular">Популярное</a>
-            <a href="index.html#contacts">Связаться</a>
+<header>
+    <div class="site-header">
+
+        <a class="site-logo" href="index.html">
+            Учебный интернет-магазин
+        </a>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="index.html#advantages">Преимущества</a></li>
+                <li><a href="index.html#popular">Популярные товары</a></li>
+                <li><a href="index.html#contacts">Связаться</a></li>
+            </ul>
         </nav>
+
     </div>
 </header>
 
 <main>
 
-    <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+    <div class="breadcrumbs">
         <a href="index.html">Главная</a>
         <span>Каталог</span>
-    </nav>
+    </div>
 
-    <section class="section">
-        <div class="container">
-            <h1>Каталог товаров</h1>
+    <section class="catalog-layout">
 
-            <div class="products">
+        <aside class="catalog-filters">
+            <h2>Фильтры</h2>
+
+            <form class="filters-form" action="#" method="get">
+
+                <fieldset>
+                    <legend>Категория</legend>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="category"
+                            value="all"
+                        >
+                        Все товары
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="category"
+                            value="popular"
+                        >
+                        Популярные
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="category"
+                            value="new"
+                        >
+                        Новинки
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Цена</legend>
+
+                    <label for="price-from">
+                        От:
+                    </label>
+
+                    <input
+                        id="price-from"
+                        type="number"
+                        name="price_from"
+                        min="0"
+                        placeholder="0"
+                    >
+
+                    <label for="price-to">
+                        До:
+                    </label>
+
+                    <input
+                        id="price-to"
+                        type="number"
+                        name="price_to"
+                        min="0"
+                        placeholder="100000"
+                    >
+                </fieldset>
+
+                <button class="button" type="submit">
+                    Применить
+                </button>
+
+            </form>
+        </aside>
+
+        <section class="catalog-products">
+            <h2>Список товаров</h2>
+
+            <div class="products-grid">
 
                 <article class="product-card">
-                    <h2>Товар 1</h2>
-                    <p>Описание первого товара.</p>
-                    <button class="button">Заказать</button>
+                    <h3>Ноутбук</h3>
+                    <p>Современный ноутбук для работы и учёбы.</p>
+                    <p>Цена: 70 000 руб.</p>
+
+                    <button
+                        class="button product-card__button"
+                        type="button"
+                        data-product="Ноутбук"
+                    >
+                        Заказать
+                    </button>
                 </article>
 
                 <article class="product-card">
-                    <h2>Товар 2</h2>
-                    <p>Описание второго товара.</p>
-                    <button class="button">Заказать</button>
+                    <h3>Смартфон</h3>
+                    <p>Удобный смартфон для повседневного использования.</p>
+                    <p>Цена: 45 000 руб.</p>
+
+                    <button
+                        class="button product-card__button"
+                        type="button"
+                        data-product="Смартфон"
+                    >
+                        Заказать
+                    </button>
                 </article>
 
                 <article class="product-card">
-                    <h2>Товар 3</h2>
-                    <p>Описание третьего товара.</p>
-                    <button class="button">Заказать</button>
+                    <h3>Наушники</h3>
+                    <p>Беспроводные наушники с качественным звуком.</p>
+                    <p>Цена: 8 000 руб.</p>
+
+                    <button
+                        class="button product-card__button"
+                        type="button"
+                        data-product="Наушники"
+                    >
+                        Заказать
+                    </button>
                 </article>
 
             </div>
-        </div>
+        </section>
+
     </section>
 
 </main>
 
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2026 Учебный интернет-магазин</p>
-    </div>
+<footer>
+    <p>&copy; 2026 Учебный интернет-магазин</p>
 </footer>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>
