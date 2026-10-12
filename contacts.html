@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Контактная информация учебного интернет-магазина.">
+    <meta
+        name="description"
+        content="Контактная информация учебного интернет-магазина."
+    >
     <title>Контакты — Учебный интернет-магазин</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -11,60 +15,89 @@
 
 <body>
 
-<header class="header">
-    <div class="container">
-        <nav class="nav">
-            <a href="index.html">Главная</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="index.html#advantages">Преимущества</a>
-            <a href="index.html#popular">Популярное</a>
-            <a href="index.html#contacts">Связаться</a>
+<header class="site-header">
+    <div class="site-header__inner">
+
+        <a class="site-header__logo" href="index.html">
+            Учебный интернет-магазин
+        </a>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="catalog.html">Каталог</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="contacts.html">Контакты</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html#popular">Популярное</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html#contacts">Связаться</a>
+                </li>
+            </ul>
         </nav>
+
     </div>
 </header>
 
-<main>
+<main class="page-content">
 
-    <nav class="breadcrumbs container" aria-label="Хлебные крошки">
-        <a href="index.html">Главная</a>
-        <span>Контакты</span>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__current">Контакты</span>
     </nav>
 
     <section class="section">
-        <div class="container">
-            <h1>Контакты</h1>
+        <div class="section__content">
+            <h1 class="section__title">Контакты</h1>
 
-            <article>
-                <h2>Как с нами связаться</h2>
+            <article class="contact-info">
+                <h2 class="contact-info__title">Как с нами связаться</h2>
 
-                <ul>
-                    <li>Телефон: +7 (900) 123-45-67</li>
-                    <li>Email: example@mail.ru</li>
-                    <li>Адрес: Москва, учебный проект</li>
+                <ul class="contact-info__list">
+                    <li class="contact-info__item">
+                        Телефон: +7 (900) 123-45-67
+                    </li>
+                    <li class="contact-info__item">
+                        Email: example@mail.ru
+                    </li>
+                    <li class="contact-info__item">
+                        Адрес: Москва, учебный проект
+                    </li>
                 </ul>
             </article>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <h2>Обратная связь</h2>
-            <p>
+        <div class="section__content">
+            <h2 class="section__title">Обратная связь</h2>
+
+            <p class="section__text">
                 Перейдите на главную страницу, чтобы воспользоваться
                 формой обратной связи.
             </p>
 
-            <a href="index.html#contacts">Перейти к форме</a>
+            <a class="section__link" href="index.html#contacts">
+                Перейти к форме
+            </a>
         </div>
     </section>
 
 </main>
 
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2026 Учебный интернет-магазин</p>
-    </div>
+<footer class="site-footer">
+    <p class="site-footer__text">
+        &copy; 2026 Учебный интернет-магазин
+    </p>
 </footer>
 
 </body>
