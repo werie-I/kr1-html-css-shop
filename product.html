@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Подробная информация о ноутбуке для работы и учёбы.">
+    <title>Ноутбук — Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html">
+            Учебный интернет-магазин
+        </a>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформление заказа</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="page-content">
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+        <span class="breadcrumbs__current">Ноутбук</span>
+    </nav>
+
+    <section class="section product-detail">
+        <h1 class="section__title">Ноутбук для работы и учёбы</h1>
+
+        <div class="product-detail__layout">
+            <div class="product-detail__image-placeholder" role="img" aria-label="Изображение ноутбука">
+                Изображение ноутбука
+            </div>
+
+            <div class="product-detail__info">
+                <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
+
+                <p class="product-detail__description">
+                    Универсальный ноутбук для учёбы, работы с документами,
+                    просмотра видео и повседневных задач.
+                </p>
+
+                <p class="product-card__price">Цена: 70 000 руб.</p>
+
+                <h2 class="product-detail__subtitle">Характеристики</h2>
+
+                <table class="product-table">
+                    <caption>Основные характеристики ноутбука</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Параметр</th>
+                            <th scope="col">Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Категория</td>
+                            <td>Ноутбук</td>
+                        </tr>
+                        <tr>
+                            <td>Назначение</td>
+                            <td>Работа и учёба</td>
+                        </tr>
+                        <tr>
+                            <td>Экран</td>
+                            <td>15,6 дюйма</td>
+                        </tr>
+                        <tr>
+                            <td>Наличие</td>
+                            <td>В наличии</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a class="button button--primary product-detail__order-link" href="order.html">
+                    Оформить заказ
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p class="site-footer__text">
+        &copy; 2026 Учебный интернет-магазин
+    </p>
+</footer>
+
+</body>
+</html>
