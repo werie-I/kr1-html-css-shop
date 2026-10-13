@@ -547,3 +547,191 @@ html {
     outline: 2px dashed var(--color-primary);
     outline-offset: 4px;
 }
+
+
+/* ========================================
+   КР-1: подробная карточка товара
+======================================== */
+
+.product-detail__layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.product-detail__image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    text-align: center;
+}
+
+.product-detail__info {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.product-detail__description {
+    line-height: 1.7;
+}
+
+.product-detail__subtitle {
+    margin-bottom: 0;
+}
+
+.product-detail__order-link {
+    justify-self: start;
+}
+
+/* Таблица характеристик */
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table caption {
+    padding: var(--space-sm);
+    font-weight: bold;
+    text-align: left;
+}
+
+.product-table th,
+.product-table td {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.product-table th {
+    background: var(--color-surface);
+}
+
+/* Бейджи карточек */
+
+.product-card__badge {
+    display: inline-block;
+    justify-self: start;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.product-card__badge--hit {
+    background: #fff0d6;
+    color: #7a4700;
+}
+
+.product-card__badge--new {
+    background: #dff5e5;
+    color: #176534;
+}
+
+/* ========================================
+   КР-1: страница оформления заказа
+======================================== */
+
+.order-page__form {
+    max-width: 640px;
+    margin-top: var(--space-lg);
+}
+
+.order-form__label--checkbox {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.order-page__note {
+    color: var(--color-text-muted, #666);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Адаптация новых страниц */
+
+@media (max-width: 700px) {
+    .product-detail__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .product-table th,
+    .product-table td {
+        padding: var(--space-sm);
+    }
+}
+
+
+/* КР-1: варианты карточек товаров */
+
+.product-card--featured {
+    border: 2px solid var(--color-primary);
+}
+
+.product-card--new {
+    border-style: dashed;
+}
+
+.product-card__details-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.product-card__details-link:hover {
+    text-decoration: underline;
+}
+
+.product-card__badge {
+    display: inline-block;
+    justify-self: start;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.product-card__badge--hit {
+    background: #fff0d6;
+    color: #7a4700;
+}
+
+.product-card__badge--new {
+    background: #dff5e5;
+    color: #176534;
+}
+
+
+/* КР-1: блок часто задаваемых вопросов */
+
+.faq__list {
+    display: grid;
+    gap: var(--space-md);
+    max-width: 900px;
+}
+
+.faq__item {
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+}
+
+.faq__question {
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.faq__answer {
+    margin-bottom: 0;
+    line-height: 1.7;
+}

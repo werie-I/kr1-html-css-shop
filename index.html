@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Учебный интернет-магазин: каталог товаров, информация о проекте и ответы на частые вопросы.">
     <title>Учебный интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
@@ -11,172 +12,216 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="site-header__inner">
-            <a class="site-header__logo" href="index.html">ShopProject</a>
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html">ShopProject</a>
 
-            <nav class="site-nav" aria-label="Основная навигация">
-                <ul class="site-nav__list">
-                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Связаться</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1 class="hero__title">Учебный интернет-магазин</h1>
-            <p class="hero__description">
-                Это стартовая страница учебного frontend-проекта.
-                В дальнейшем на её основе будет разработан
-                многостраничный сайт интернет-магазина или каталога услуг.
-            </p>
-            <a class="button button--primary" href="#popular">Перейти к товарам</a>
-        </section>
-
-        <section class="section" id="advantages">
-            <h2 class="section__title">Преимущества проекта</h2>
-            <ul class="advantages-list">
-                <li class="advantages-list__item">Понятная HTML-структура;</li>
-                <li class="advantages-list__item">Семантические блоки страницы;</li>
-                <li class="advantages-list__item">Подключение внешнего CSS-файла;</li>
-                <li class="advantages-list__item">Подготовка к разработке многостраничного сайта.</li>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформление заказа</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="#faq">Вопросы</a></li>
             </ul>
-        </section>
-
-        <section class="section" id="popular">
-            <h2 class="section__title">Популярные товары</h2>
-
-            <div class="products-grid">
-                <article class="product-card product-card--featured">
-                    <h3 class="product-card__title">Товар 1</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 1000 руб.</p>
-                    <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
-                </article>
-
-                <article class="product-card">
-                    <h3 class="product-card__title">Товар 2</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 1500 руб.</p>
-                    <button class="button button--primary product-card__button" type="button" data-product="Товар 2">Заказать</button>
-                </article>
-
-                <article class="product-card">
-                    <h3 class="product-card__title">Товар 3</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 2000 руб.</p>
-                    <button class="button button--primary product-card__button" type="button" data-product="Товар 3">Заказать</button>
-                </article>
-            </div>
-        </section>
-
-        <aside class="aside-info">
-            <h2 class="aside-info__title">Информация для студентов</h2>
-            <p class="aside-info__text">
-                На следующих практических занятиях этот проект будет расширяться:
-                появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
-                БЭМ-структура и адаптивная версия сайта.
-            </p>
-        </aside>
-
-        <section class="section" id="contacts">
-            <h2 class="section__title">Контакты</h2>
-            <p class="section__text">
-                Если у вас есть вопросы, свяжитесь с нами
-                через форму обратной связи.
-            </p>
-            <a class="button button--primary" href="contacts.html">Перейти к контактам</a>
-        </section>
-    </main>
-
-    <div class="modal" id="orderModal" aria-hidden="true">
-        <div class="modal__overlay" data-modal-close></div>
-
-        <div class="modal__content"
-             role="dialog"
-             aria-modal="true"
-             aria-labelledby="orderModalTitle">
-
-            <button class="button button--secondary order-dialog__close"
-                    type="button"
-                    aria-label="Закрыть окно"
-                    data-modal-close>
-                &times;
-            </button>
-
-            <h2 class="order-dialog__title" id="orderModalTitle">Оформление заявки</h2>
-
-            <form class="order-form" id="orderForm" novalidate>
-                <input type="hidden" id="productInput" name="product">
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="nameInput">Имя</label>
-                    <input class="order-form__input" type="text" id="nameInput" name="name" placeholder="Введите имя" required>
-                    <span class="order-form__error" id="nameError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="phoneInput">Телефон</label>
-                    <input class="order-form__input" type="tel" id="phoneInput" name="phone" placeholder="+7 (___) ___-__-__" required>
-                    <span class="order-form__error" id="phoneError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="emailInput">Email</label>
-                    <input class="order-form__input" type="email" id="emailInput" name="email" placeholder="example@mail.ru" required>
-                    <span class="order-form__error" id="emailError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="dateInput">Дата</label>
-                    <input class="order-form__input" type="date" id="dateInput" name="date" required>
-                    <span class="order-form__error" id="dateError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="topicInput">Товар</label>
-                    <select class="order-form__select" id="topicInput" name="topic" required>
-                        <option value="">Выберите товар</option>
-                        <option value="Товар 1">Товар 1</option>
-                        <option value="Товар 2">Товар 2</option>
-                        <option value="Товар 3">Товар 3</option>
-                    </select>
-                    <span class="order-form__error" id="topicError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="consentInput">
-                        <input class="order-form__checkbox" type="checkbox" id="consentInput" name="consent" required>
-                        Я согласен(на) на обработку данных
-                    </label>
-                    <span class="order-form__error" id="consentError"></span>
-                </div>
-
-                <div class="order-form__field">
-                    <label class="order-form__label" for="commentInput">Комментарий</label>
-                    <textarea class="order-form__textarea" id="commentInput" name="comment" rows="4" placeholder="Ваш комментарий"></textarea>
-                    <span class="order-form__error" id="commentError"></span>
-                </div>
-
-                <div class="order-form__actions">
-                    <button class="button button--primary" type="submit">Отправить заявку</button>
-                </div>
-
-                <p class="success-message" id="successMessage"></p>
-            </form>
-        </div>
+        </nav>
     </div>
+</header>
 
-    <footer class="site-footer">
-        <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
-    </footer>
+<main>
+
+    <section class="hero">
+        <h1 class="hero__title">Учебный интернет-магазин</h1>
+        <p class="hero__description">
+            Учебный проект интернет-магазина с каталогом товаров,
+            подробными карточками, формой заказа и справочной информацией.
+        </p>
+        <a class="button button--primary" href="catalog.html">Перейти к товарам</a>
+    </section>
+
+    <section class="section" id="advantages">
+        <h2 class="section__title">Преимущества проекта</h2>
+        <ul class="advantages-list">
+            <li class="advantages-list__item">Понятная HTML-структура;</li>
+            <li class="advantages-list__item">Семантические блоки страницы;</li>
+            <li class="advantages-list__item">Единая система CSS-классов по БЭМ;</li>
+            <li class="advantages-list__item">Адаптивная сетка товаров;</li>
+            <li class="advantages-list__item">Форма заказа с проверкой введённых данных.</li>
+        </ul>
+    </section>
+
+    <section class="section" id="popular">
+        <h2 class="section__title">Популярные товары</h2>
+
+        <div class="products-grid">
+
+            <article class="product-card product-card--featured">
+                <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
+                <h3 class="product-card__title">Ноутбук</h3>
+                <p class="product-card__description">Современный ноутбук для работы и учёбы.</p>
+                <p class="product-card__price">Цена: 70 000 руб.</p>
+                <a class="product-card__details-link" href="product.html">Подробнее</a>
+                <button class="button button--primary product-card__button" type="button" data-product="Ноутбук">Заказать</button>
+            </article>
+
+            <article class="product-card">
+                <h3 class="product-card__title">Смартфон</h3>
+                <p class="product-card__description">Удобный смартфон для повседневного использования.</p>
+                <p class="product-card__price">Цена: 45 000 руб.</p>
+                <a class="product-card__details-link" href="product.html">Подробнее</a>
+                <button class="button button--primary product-card__button" type="button" data-product="Смартфон">Заказать</button>
+            </article>
+
+            <article class="product-card product-card--new">
+                <span class="product-card__badge product-card__badge--new">Новинка</span>
+                <h3 class="product-card__title">Наушники</h3>
+                <p class="product-card__description">Беспроводные наушники с качественным звуком.</p>
+                <p class="product-card__price">Цена: 8 000 руб.</p>
+                <a class="product-card__details-link" href="product.html">Подробнее</a>
+                <button class="button button--primary product-card__button" type="button" data-product="Наушники">Заказать</button>
+            </article>
+
+        </div>
+    </section>
+
+    <aside class="aside-info">
+        <h2 class="aside-info__title">Информация для студентов</h2>
+        <p class="aside-info__text">
+            Проект демонстрирует многостраничную структуру сайта,
+            Flexbox, CSS Grid, методологию БЭМ, формы и модальное окно.
+        </p>
+    </aside>
+
+    <section class="section" id="contacts">
+        <h2 class="section__title">Контакты</h2>
+        <p class="section__text">
+            Если у вас есть вопросы, перейдите на страницу контактов.
+        </p>
+        <a class="button button--primary" href="contacts.html">Перейти к контактам</a>
+    </section>
+
+    <section class="section faq" id="faq">
+        <h2 class="section__title">Часто задаваемые вопросы</h2>
+
+        <div class="faq__list">
+            <details class="faq__item">
+                <summary class="faq__question">Как оформить заказ?</summary>
+                <p class="faq__answer">
+                    Выберите товар в каталоге и нажмите «Заказать»,
+                    либо перейдите на страницу оформления заказа.
+                </p>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">Какие товары представлены в магазине?</summary>
+                <p class="faq__answer">
+                    В учебном каталоге представлены ноутбук, смартфон,
+                    наушники и другие электронные устройства.
+                </p>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">Где посмотреть характеристики товара?</summary>
+                <p class="faq__answer">
+                    Перейдите по ссылке «Подробнее» в карточке товара.
+                </p>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">Отправляется ли заказ на сервер?</summary>
+                <p class="faq__answer">
+                    Нет. Это учебный проект, демонстрирующий интерфейс сайта.
+                    Реальная отправка заказов пока не настроена.
+                </p>
+            </details>
+        </div>
+    </section>
+
+</main>
+
+<div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+
+    <div class="modal__content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="orderModalTitle">
+
+        <button class="button button--secondary order-dialog__close"
+                type="button"
+                aria-label="Закрыть окно"
+                data-modal-close>
+            &times;
+        </button>
+
+        <h2 class="order-dialog__title" id="orderModalTitle">Оформление заявки</h2>
+
+        <form class="order-form" id="orderForm" novalidate>
+            <input type="hidden" id="productInput" name="product">
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="nameInput">Имя</label>
+                <input class="order-form__input" type="text" id="nameInput" name="name" placeholder="Введите имя" required>
+                <span class="order-form__error" id="nameError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="phoneInput">Телефон</label>
+                <input class="order-form__input" type="tel" id="phoneInput" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <span class="order-form__error" id="phoneError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="emailInput">Email</label>
+                <input class="order-form__input" type="email" id="emailInput" name="email" placeholder="example@mail.ru" required>
+                <span class="order-form__error" id="emailError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="dateInput">Дата</label>
+                <input class="order-form__input" type="date" id="dateInput" name="date" required>
+                <span class="order-form__error" id="dateError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="topicInput">Товар</label>
+                <select class="order-form__select" id="topicInput" name="topic" required>
+                    <option value="">Выберите товар</option>
+                    <option value="Ноутбук">Ноутбук</option>
+                    <option value="Смартфон">Смартфон</option>
+                    <option value="Наушники">Наушники</option>
+                </select>
+                <span class="order-form__error" id="topicError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="consentInput">
+                    <input class="order-form__checkbox" type="checkbox" id="consentInput" name="consent" required>
+                    Я согласен(на) на обработку данных
+                </label>
+                <span class="order-form__error" id="consentError"></span>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="commentInput">Комментарий</label>
+                <textarea class="order-form__textarea" id="commentInput" name="comment" rows="4" placeholder="Ваш комментарий"></textarea>
+                <span class="order-form__error" id="commentError"></span>
+            </div>
+
+            <div class="order-form__actions">
+                <button class="button button--primary" type="submit">Отправить заявку</button>
+            </div>
+
+            <p class="success-message" id="successMessage"></p>
+        </form>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+</footer>
 
 </body>
 </html>
