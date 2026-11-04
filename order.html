@@ -4,137 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Оформление заказа в учебном интернет-магазине.">
-    <title>Оформление заказа — Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Оформление заказа — Чайный клуб</title>
+  <meta name="description" content="Оформление демонстрационного заказа в интернет-магазине Чайный клуб.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/site-components.css">
 </head>
-
 <body>
+<div data-site-header></div>
 
-<header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">
-            Учебный интернет-магазин
-        </a>
 
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформление заказа</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
 
-<main class="page-content">
 
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
-        <span class="breadcrumbs__current">Оформление заказа</span>
+<main class="container my-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item"><a href="cart.html">Корзина</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Оформление заказа</li>
+        </ol>
     </nav>
 
-    <section class="section order-page">
-        <h1 class="section__title">Оформление заказа</h1>
+    <h1 class="fw-bold mb-4">Оформление заказа</h1>
 
-        <p class="section__text">
-            Заполните форму, чтобы оставить заявку на выбранный товар.
-        </p>
+    <div class="row g-4">
+        <div class="col-12 col-lg-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-4">Данные покупателя</h2>
 
-        <form class="order-form order-page__form" action="#" method="post">
+                    <form id="orderForm">
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Ваше имя</label>
+                            <input type="text" class="form-control" id="customerName"
+                                name="name" placeholder="Введите имя" required>
+                        </div>
 
-            <div class="order-form__field">
-                <label class="order-form__label" for="order-name">Ваше имя</label>
-                <input
-                    class="order-form__input"
-                    id="order-name"
-                    name="name"
-                    type="text"
-                    placeholder="Введите имя"
-                    required
-                >
+                        <div class="mb-3">
+                            <label for="customerPhone" class="form-label">Телефон</label>
+                            <input type="tel" class="form-control" id="customerPhone"
+                                name="phone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="customerEmail" class="form-label">Электронная почта</label>
+                            <input type="email" class="form-control" id="customerEmail"
+                                name="email" placeholder="example@mail.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="deliveryMethod" class="form-label">Способ получения</label>
+                            <select class="form-select" id="deliveryMethod" required>
+                                <option value="delivery" selected>Доставка курьером</option>
+                                <option value="pickup">Самовывоз</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3" id="addressBlock">
+                            <label for="customerAddress" class="form-label">Адрес доставки</label>
+                            <input type="text" class="form-control" id="customerAddress"
+                                placeholder="Город, улица, дом, квартира">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="orderComment" class="form-label">Комментарий к заказу</label>
+                            <textarea class="form-control" id="orderComment" rows="3"
+                                placeholder="Дополнительные пожелания"></textarea>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox"
+                                id="personalData" required>
+                            <label class="form-check-label" for="personalData">
+                                Я согласен(на) на обработку персональных данных
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg w-100">
+                            Подтвердить заказ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-3">Ваш заказ</h2>
+
+                    <div id="orderItems"></div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between">
+                        <span>Количество товаров:</span>
+                        <strong id="orderCount">0</strong>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <span>Итого:</span>
+                        <strong class="fs-4" id="orderTotal">0 ₽</strong>
+                    </div>
+
+                    <a href="cart.html" class="btn btn-outline-secondary w-100 mt-4">
+                        Вернуться в корзину
+                    </a>
+                </div>
             </div>
 
-            <div class="order-form__field">
-                <label class="order-form__label" for="order-email">Электронная почта</label>
-                <input
-                    class="order-form__input"
-                    id="order-email"
-                    name="email"
-                    type="email"
-                    placeholder="example@mail.ru"
-                    required
-                >
+            <div class="alert alert-info mt-4" role="alert">
+                Это демонстрационный интернет-магазин. Настоящая оплата и отправка заказа на сервер не подключены.
             </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="order-phone">Телефон</label>
-                <input
-                    class="order-form__input"
-                    id="order-phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+7 (900) 123-45-67"
-                    required
-                >
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="order-product">Товар</label>
-                <select class="order-form__select" id="order-product" name="product" required>
-                    <option value="">Выберите товар</option>
-                    <option value="Ноутбук">Ноутбук</option>
-                    <option value="Смартфон">Смартфон</option>
-                    <option value="Наушники">Наушники</option>
-                </select>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="order-comment">Комментарий</label>
-                <textarea
-                    class="order-form__textarea"
-                    id="order-comment"
-                    name="comment"
-                    rows="4"
-                    placeholder="Дополнительная информация"
-                ></textarea>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label order-form__label--checkbox" for="order-consent">
-                    <input
-                        class="order-form__checkbox"
-                        id="order-consent"
-                        name="consent"
-                        type="checkbox"
-                        required
-                    >
-                    Согласен(на) на обработку данных
-                </label>
-            </div>
-
-            <div class="order-form__actions">
-                <button class="button button--primary" type="submit">
-                    Отправить заявку
-                </button>
-            </div>
-
-            <p class="order-page__note">
-                Учебная форма: отправка заявки на сервер пока не настроена.
-            </p>
-        </form>
-    </section>
-
+        </div>
+    </div>
 </main>
 
-<footer class="site-footer">
-    <p class="site-footer__text">
-        &copy; 2026 Учебный интернет-магазин
-    </p>
+<section class="container mb-5">
+    <h2 class="h4 mb-3">Информация о заказе</h2>
+
+    <div class="accordion" id="orderAccordion">
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#deliveryInfo">
+                    Как осуществляется доставка?
+                </button>
+            </h3>
+            <div id="deliveryInfo" class="accordion-collapse collapse show"
+                data-bs-parent="#orderAccordion">
+                <div class="accordion-body">
+                    В демонстрационной версии можно выбрать доставку или самовывоз.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#paymentInfo">
+                    Как оплатить заказ?
+                </button>
+            </h3>
+            <div id="paymentInfo" class="accordion-collapse collapse"
+                data-bs-parent="#orderAccordion">
+                <div class="accordion-body">
+                    Онлайн-оплата пока не подключена. Страница демонстрирует процесс оформления покупки.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p class="mb-1">Чайный клуб</p>
+        <small>© 2026. Все права защищены.</small>
+    </div>
 </footer>
 
+<div class="modal fade" id="successModal" tabindex="-1"
+    aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="successModalLabel">Заказ оформлен!</h2>
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                Спасибо за покупку! Ваш демонстрационный заказ успешно оформлен.
+            </div>
+            <div class="modal-footer">
+                <a href="catalog.html" class="btn btn-success">Вернуться в каталог</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cart = JSON.parse(localStorage.getItem("teaCart")) || [];
+
+    const orderItems = document.getElementById("orderItems");
+    const orderCount = document.getElementById("orderCount");
+    const orderTotal = document.getElementById("orderTotal");
+    const orderForm = document.getElementById("orderForm");
+    const deliveryMethod = document.getElementById("deliveryMethod");
+    const addressBlock = document.getElementById("addressBlock");
+    const customerAddress = document.getElementById("customerAddress");
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    const count = cart.reduce(
+        (sum, item) => sum + item.quantity, 0
+    );
+
+    orderItems.innerHTML = cart.length
+        ? cart.map(item => `
+            <div class="d-flex justify-content-between gap-2 mb-2">
+                <span>${item.name} × ${item.quantity}</span>
+                <strong>${(item.price * item.quantity).toLocaleString("ru-RU")} ₽</strong>
+            </div>
+        `).join("")
+        : '<p class="text-secondary">Корзина пуста. Сначала выберите товары.</p>';
+
+    orderCount.textContent = count;
+    orderTotal.textContent = total.toLocaleString("ru-RU") + " ₽";
+
+    function updateDelivery() {
+        const isDelivery = deliveryMethod.value === "delivery";
+        addressBlock.hidden = !isDelivery;
+        customerAddress.required = isDelivery;
+    }
+
+    deliveryMethod.addEventListener("change", updateDelivery);
+    updateDelivery();
+
+    orderForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (cart.length === 0) {
+            alert("Сначала добавьте товары в корзину.");
+            return;
+        }
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("successModal")
+        );
+        modal.show();
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div data-site-credits></div>
+<script src="js/components.js"></script>
 </body>
+
 </html>

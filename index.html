@@ -4,224 +4,1233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Учебный интернет-магазин: каталог товаров, информация о проекте и ответы на частые вопросы.">
-    <title>Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+
+    <title>ЧАЙНЫЙ КЛУБ — искусство настоящего чая</title>
+  <meta name="description" content="Главная страница Чайного клуба: культура чая, популярные сорта и знакомство с коллекцией.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #242b22;
+            --olive: #485442;
+            --olive-dark: #303a2e;
+            --cream: #f5f2ea;
+            --paper: #ebe7dc;
+            --muted: #77786e;
+            --gold: #aa9162;
+            --line: rgba(36,43,34,.17);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            font-weight: 400;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container-premium {
+            width: min(1320px, calc(100% - 100px));
+            margin: auto;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .serif {
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 400;
+        }
+
+        /* NAVIGATION */
+
+        .premium-nav {
+            position: relative;
+            z-index: 100;
+            background: var(--cream);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand {
+            font-size: 18px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .brand small {
+            display: block;
+            font-size: 8px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            font-size: 12px;
+        }
+
+        .nav-links a {
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .nav-menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--line);
+            padding: 9px 13px;
+            font-size: 12px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #323c30;
+            color: white;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 55%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(22,29,22,.88) 0%,
+                rgba(22,29,22,.65) 42%,
+                rgba(22,29,22,.08) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1320px, calc(100% - 100px));
+            margin: auto;
+            padding: 90px 0;
+        }
+
+        .hero .eyebrow {
+            color: #d0bc91;
+        }
+
+        .hero h1 {
+            max-width: 760px;
+            font-size: clamp(52px, 7vw, 100px);
+            line-height: 1.04;
+            margin: 32px 0 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            max-width: 420px;
+            color: rgba(255,255,255,.78);
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 38px;
+            flex-wrap: wrap;
+        }
+
+        .button-light {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 27px;
+            background: var(--cream);
+            color: var(--ink);
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: .25s;
+        }
+
+        .button-light:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .button-outline-light {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 26px;
+            border: 1px solid rgba(255,255,255,.55);
+            color: white;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: .25s;
+        }
+
+        .button-outline-light:hover {
+            background: white;
+            color: var(--ink);
+        }
+
+        .hero-note {
+            position: absolute;
+            right: 50px;
+            bottom: 36px;
+            z-index: 2;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,.75);
+            text-transform: uppercase;
+        }
+
+        /* INTRO */
+
+        .intro {
+            padding: 110px 0 105px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            max-width: 850px;
+            margin: 25px auto;
+            font-size: clamp(34px, 5vw, 62px);
+            line-height: 1.2;
+        }
+
+        .intro p {
+            max-width: 590px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* COLLECTION */
+
+        .collection {
+            padding: 90px 0 110px;
+            background: #ebe8de;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 42px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(35px, 4vw, 55px);
+            margin: 14px 0 0;
+        }
+
+        .minimal-link {
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 6px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            background: #ddd8ca;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            transition: transform .6s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.045);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            padding: 8px 11px;
+            background: var(--cream);
+            color: var(--ink);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info {
+            padding: 21px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .product-info h3 {
+            font-size: 17px;
+            font-weight: 500;
+            margin: 0 0 7px;
+        }
+
+        .product-info p {
+            font-size: 11px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .product-price {
+            font-size: 13px;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .product-details {
+            display: inline-block;
+            margin-top: 13px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 4px;
+        }
+
+        /* BRAND STORY */
+
+        .story {
+            padding: 120px 0;
+            background: var(--olive-dark);
+            color: white;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 85px;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 580px;
+            object-fit: cover;
+        }
+
+        .story h2 {
+            font-size: clamp(40px, 5vw, 67px);
+            line-height: 1.15;
+            margin: 24px 0;
+        }
+
+        .story p {
+            color: rgba(255,255,255,.68);
+            font-size: 13px;
+            line-height: 2;
+            max-width: 430px;
+        }
+
+        .story .minimal-link {
+            display: inline-block;
+            margin-top: 25px;
+            border-color: rgba(255,255,255,.6);
+        }
+
+        .story .eyebrow {
+            color: #d0bc91;
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            padding: 110px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e9e5da;
+        }
+
+        .experience-image {
+            min-height: 510px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-content {
+            padding: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .experience-content h2 {
+            font-size: clamp(36px, 4vw, 56px);
+            line-height: 1.2;
+            margin: 22px 0;
+        }
+
+        .experience-content p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+            max-width: 400px;
+        }
+
+        .button-dark {
+            background: var(--olive-dark);
+            color: white;
+            padding: 16px 25px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            transition: .2s;
+        }
+
+        .button-dark:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* DISCOVER */
+
+        .discover {
+            padding: 100px 0;
+            background: #ebe8de;
+        }
+
+        .discover-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .discover-card {
+            position: relative;
+            min-height: 390px;
+            overflow: hidden;
+            background: var(--olive-dark);
+            color: white;
+        }
+
+        .discover-card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            object-fit: cover;
+            transition: transform .6s;
+        }
+
+        .discover-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .discover-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                0deg,
+                rgba(21,29,21,.9),
+                rgba(21,29,21,.04) 85%
+            );
+        }
+
+        .discover-content {
+            position: absolute;
+            z-index: 2;
+            bottom: 28px;
+            left: 28px;
+            right: 28px;
+        }
+
+        .discover-content .eyebrow {
+            color: #d0bc91;
+        }
+
+        .discover-content h3 {
+            font-size: 29px;
+            margin: 13px 0;
+        }
+
+        .discover-content p {
+            font-size: 12px;
+            line-height: 1.7;
+            color: rgba(255,255,255,.75);
+        }
+
+        .discover-content a {
+            display: inline-block;
+            margin-top: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255,255,255,.7);
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* REVIEWS */
+
+        .reviews {
+            padding: 110px 0;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .review-card {
+            padding: 32px;
+            border: 1px solid var(--line);
+            background: transparent;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .review-card blockquote {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 19px;
+            line-height: 1.65;
+            margin: 24px 0 30px;
+        }
+
+        .review-card .review-name {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .review-card .review-product {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* FINAL CTA */
+
+        .final-cta {
+            position: relative;
+            padding: 110px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(28,39,29,.75),rgba(28,39,29,.75)),
+                url("https://images.unsplash.com/photo-1687178888460-5dcbcd5c8c18?w=1600")
+                center/cover;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(42px, 5vw, 65px);
+            margin: 22px 0;
+        }
+
+        .final-cta p {
+            color: rgba(255,255,255,.75);
+            font-size: 13px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 65px 0 25px;
+            background: #20291f;
+            color: white;
+        }
+
+        .footer-brand {
+            font-size: 19px;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .footer-description {
+            max-width: 280px;
+            color: rgba(255,255,255,.5);
+            font-size: 12px;
+            line-height: 1.9;
+            margin-top: 18px;
+        }
+
+        .footer h4 {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c1ad85;
+            margin-bottom: 22px;
+        }
+
+        .footer-links a {
+            display: block;
+            font-size: 11px;
+            color: rgba(255,255,255,.65);
+            margin-bottom: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.13);
+            margin-top: 50px;
+            padding-top: 22px;
+            color: rgba(255,255,255,.45);
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 1050px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .experience-content {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .container-premium,
+            .hero-content {
+                width: calc(100% - 40px);
+            }
+
+            .nav-inner {
+                flex-wrap: wrap;
+                padding: 18px 0;
+            }
+
+            .nav-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 12px 0;
+                border-top: 1px solid var(--line);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+                font-size: 12px;
+            }
+
+            .product-grid,
+            .discover-grid,
+            .review-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .story-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .story-image {
+                height: 420px;
+            }
+
+            .experience-image {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+            }
+
+            .hero-note {
+                right: 20px;
+                font-size: 8px;
+            }
+
+            .intro,
+            .collection,
+            .story,
+            .experience,
+            .discover,
+            .reviews {
+                padding: 70px 0;
+            }
+
+            .product-grid,
+            .discover-grid,
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image img {
+                height: 320px;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .experience-content {
+                padding: 35px 25px;
+            }
+
+            .story-image {
+                height: 330px;
+            }
+
+            .final-cta {
+                padding: 80px 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/site-components.css">
 </head>
 
 <body>
+<div data-site-header></div>
 
-<header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
 
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформление заказа</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#faq">Вопросы</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<!-- NAVIGATION -->
 
-<main>
 
-    <section class="hero">
-        <h1 class="hero__title">Учебный интернет-магазин</h1>
-        <p class="hero__description">
-            Учебный проект интернет-магазина с каталогом товаров,
-            подробными карточками, формой заказа и справочной информацией.
+
+<!-- HERO -->
+
+
+
+<!-- INTRO -->
+<section class="intro">
+    <div class="container-premium">
+
+        <span class="eyebrow">Философия чайного клуба</span>
+
+        <h2 class="serif">
+            Иногда достаточно одной чашки,
+            чтобы мир вокруг стал немного тише.
+        </h2>
+
+        <p>
+            Мы верим в красоту простых ритуалов.
+            В аромат свежезаваренного листа, в неспешные разговоры
+            и в удовольствие открывать новые оттенки знакомого вкуса.
         </p>
-        <a class="button button--primary" href="catalog.html">Перейти к товарам</a>
-    </section>
 
-    <section class="section" id="advantages">
-        <h2 class="section__title">Преимущества проекта</h2>
-        <ul class="advantages-list">
-            <li class="advantages-list__item">Понятная HTML-структура;</li>
-            <li class="advantages-list__item">Семантические блоки страницы;</li>
-            <li class="advantages-list__item">Единая система CSS-классов по БЭМ;</li>
-            <li class="advantages-list__item">Адаптивная сетка товаров;</li>
-            <li class="advantages-list__item">Форма заказа с проверкой введённых данных.</li>
-        </ul>
-    </section>
+    </div>
+</section>
 
-    <section class="section" id="popular">
-        <h2 class="section__title">Популярные товары</h2>
 
-        <div class="products-grid">
+<!-- COLLECTION -->
+<section class="collection">
+    <div class="container-premium">
 
-            <article class="product-card product-card--featured">
-                <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
-                <h3 class="product-card__title">Ноутбук</h3>
-                <p class="product-card__description">Современный ноутбук для работы и учёбы.</p>
-                <p class="product-card__price">Цена: 70 000 руб.</p>
-                <a class="product-card__details-link" href="product.html">Подробнее</a>
-                <button class="button button--primary product-card__button" type="button" data-product="Ноутбук">Заказать</button>
-            </article>
+        <div class="section-heading">
+
+            <div>
+                <span class="eyebrow">Выбор клуба</span>
+                <h2 class="serif">Избранная коллекция</h2>
+            </div>
+
+            <a href="catalog.html" class="minimal-link">
+                Вся коллекция ↗
+            </a>
+
+        </div>
+
+        <div class="product-grid">
 
             <article class="product-card">
-                <h3 class="product-card__title">Смартфон</h3>
-                <p class="product-card__description">Удобный смартфон для повседневного использования.</p>
-                <p class="product-card__price">Цена: 45 000 руб.</p>
-                <a class="product-card__details-link" href="product.html">Подробнее</a>
-                <button class="button button--primary product-card__button" type="button" data-product="Смартфон">Заказать</button>
+
+                <a href="product.html" class="product-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1763617702099-d956f3fd8324?w=900"
+                        alt="Зелёный чай Сенча">
+
+                    <span class="product-tag">01 / Япония</span>
+                </a>
+
+                <div class="product-info">
+                    <div>
+                        <h3>Зелёный чай Сенча</h3>
+                        <p>Свежий, травяной, деликатный</p>
+                        <a href="product.html" class="product-details">
+                            Подробнее
+                        </a>
+                    </div>
+
+                    <span class="product-price">450 ₽</span>
+                </div>
+
             </article>
 
-            <article class="product-card product-card--new">
-                <span class="product-card__badge product-card__badge--new">Новинка</span>
-                <h3 class="product-card__title">Наушники</h3>
-                <p class="product-card__description">Беспроводные наушники с качественным звуком.</p>
-                <p class="product-card__price">Цена: 8 000 руб.</p>
-                <a class="product-card__details-link" href="product.html">Подробнее</a>
-                <button class="button button--primary product-card__button" type="button" data-product="Наушники">Заказать</button>
+
+            <article class="product-card">
+
+                <a href="catalog.html" class="product-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1759523710626-199a2da96085?w=900"
+                        alt="Чёрный чай Ассам">
+
+                    <span class="product-tag">02 / Индия</span>
+                </a>
+
+                <div class="product-info">
+                    <div>
+                        <h3>Чёрный чай Ассам</h3>
+                        <p>Глубокий, насыщенный, яркий</p>
+                        <a href="catalog.html" class="product-details">
+                            Подробнее
+                        </a>
+                    </div>
+
+                    <span class="product-price">520 ₽</span>
+                </div>
+
+            </article>
+
+
+            <article class="product-card">
+
+                <a href="catalog.html" class="product-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1648455321715-e8ed86188c0e?w=900"
+                        alt="Травяной сбор">
+
+                    <span class="product-tag">03 / Коллекция</span>
+                </a>
+
+                <div class="product-info">
+                    <div>
+                        <h3>Травяной сбор</h3>
+                        <p>Нежный, ароматный, природный</p>
+                        <a href="catalog.html" class="product-details">
+                            Подробнее
+                        </a>
+                    </div>
+
+                    <span class="product-price">390 ₽</span>
+                </div>
+
             </article>
 
         </div>
-    </section>
 
-    <aside class="aside-info">
-        <h2 class="aside-info__title">Информация для студентов</h2>
-        <p class="aside-info__text">
-            Проект демонстрирует многостраничную структуру сайта,
-            Flexbox, CSS Grid, методологию БЭМ, формы и модальное окно.
-        </p>
-    </aside>
-
-    <section class="section" id="contacts">
-        <h2 class="section__title">Контакты</h2>
-        <p class="section__text">
-            Если у вас есть вопросы, перейдите на страницу контактов.
-        </p>
-        <a class="button button--primary" href="contacts.html">Перейти к контактам</a>
-    </section>
-
-    <section class="section faq" id="faq">
-        <h2 class="section__title">Часто задаваемые вопросы</h2>
-
-        <div class="faq__list">
-            <details class="faq__item">
-                <summary class="faq__question">Как оформить заказ?</summary>
-                <p class="faq__answer">
-                    Выберите товар в каталоге и нажмите «Заказать»,
-                    либо перейдите на страницу оформления заказа.
-                </p>
-            </details>
-
-            <details class="faq__item">
-                <summary class="faq__question">Какие товары представлены в магазине?</summary>
-                <p class="faq__answer">
-                    В учебном каталоге представлены ноутбук, смартфон,
-                    наушники и другие электронные устройства.
-                </p>
-            </details>
-
-            <details class="faq__item">
-                <summary class="faq__question">Где посмотреть характеристики товара?</summary>
-                <p class="faq__answer">
-                    Перейдите по ссылке «Подробнее» в карточке товара.
-                </p>
-            </details>
-
-            <details class="faq__item">
-                <summary class="faq__question">Отправляется ли заказ на сервер?</summary>
-                <p class="faq__answer">
-                    Нет. Это учебный проект, демонстрирующий интерфейс сайта.
-                    Реальная отправка заказов пока не настроена.
-                </p>
-            </details>
-        </div>
-    </section>
-
-</main>
-
-<div class="modal" id="orderModal" aria-hidden="true">
-    <div class="modal__overlay" data-modal-close></div>
-
-    <div class="modal__content"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="orderModalTitle">
-
-        <button class="button button--secondary order-dialog__close"
-                type="button"
-                aria-label="Закрыть окно"
-                data-modal-close>
-            &times;
-        </button>
-
-        <h2 class="order-dialog__title" id="orderModalTitle">Оформление заявки</h2>
-
-        <form class="order-form" id="orderForm" novalidate>
-            <input type="hidden" id="productInput" name="product">
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="nameInput">Имя</label>
-                <input class="order-form__input" type="text" id="nameInput" name="name" placeholder="Введите имя" required>
-                <span class="order-form__error" id="nameError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="phoneInput">Телефон</label>
-                <input class="order-form__input" type="tel" id="phoneInput" name="phone" placeholder="+7 (___) ___-__-__" required>
-                <span class="order-form__error" id="phoneError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="emailInput">Email</label>
-                <input class="order-form__input" type="email" id="emailInput" name="email" placeholder="example@mail.ru" required>
-                <span class="order-form__error" id="emailError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="dateInput">Дата</label>
-                <input class="order-form__input" type="date" id="dateInput" name="date" required>
-                <span class="order-form__error" id="dateError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="topicInput">Товар</label>
-                <select class="order-form__select" id="topicInput" name="topic" required>
-                    <option value="">Выберите товар</option>
-                    <option value="Ноутбук">Ноутбук</option>
-                    <option value="Смартфон">Смартфон</option>
-                    <option value="Наушники">Наушники</option>
-                </select>
-                <span class="order-form__error" id="topicError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="consentInput">
-                    <input class="order-form__checkbox" type="checkbox" id="consentInput" name="consent" required>
-                    Я согласен(на) на обработку данных
-                </label>
-                <span class="order-form__error" id="consentError"></span>
-            </div>
-
-            <div class="order-form__field">
-                <label class="order-form__label" for="commentInput">Комментарий</label>
-                <textarea class="order-form__textarea" id="commentInput" name="comment" rows="4" placeholder="Ваш комментарий"></textarea>
-                <span class="order-form__error" id="commentError"></span>
-            </div>
-
-            <div class="order-form__actions">
-                <button class="button button--primary" type="submit">Отправить заявку</button>
-            </div>
-
-            <p class="success-message" id="successMessage"></p>
-        </form>
     </div>
-</div>
+</section>
 
-<footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+
+<!-- BRAND STORY -->
+<section class="story">
+    <div class="container-premium">
+
+        <div class="story-grid">
+
+            <div>
+                <img
+                    src="https://images.unsplash.com/photo-1647894111500-4ea0cea3bfe6?w=1000"
+                    alt="Чайная композиция"
+                    class="story-image">
+            </div>
+
+            <div>
+
+                <span class="eyebrow">Больше, чем напиток</span>
+
+                <h2 class="serif">
+                    Культура,<br>
+                    которую<br>
+                    можно почувствовать.
+                </h2>
+
+                <p>
+                    У каждого сорта своя история.
+                    За каждым ароматом стоят традиции,
+                    места и люди, которые бережно сохраняют
+                    искусство выращивания и приготовления чая.
+                </p>
+
+                <p>
+                    Познакомьтесь с чайными традициями
+                    разных стран и найдите то, что близко именно вам.
+                </p>
+
+                <a href="tea-history.html" class="minimal-link">
+                    Путешествие в историю чая ↗
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- TEA CEREMONY -->
+<section class="experience">
+    <div class="container-premium">
+
+        <div class="experience-grid">
+
+            <div>
+                <img
+                    src="https://images.unsplash.com/photo-1648489350008-4e77e9c675d0?w=1100"
+                    alt="Чайная церемония"
+                    class="experience-image">
+            </div>
+
+            <div class="experience-content">
+
+                <span class="eyebrow">Особенный ритуал</span>
+
+                <h2 class="serif">
+                    Время,<br>
+                    посвящённое себе.
+                </h2>
+
+                <p>
+                    Позвольте себе замедлиться.
+                    Откройте мир чайных церемоний,
+                    познакомьтесь с традициями и
+                    проведите время в особенной атмосфере.
+                </p>
+
+                <a href="ceremony.html" class="button-dark">
+                    Забронировать церемонию ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- DISCOVER -->
+<section class="discover">
+    <div class="container-premium">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">Исследуйте</span>
+                <h2 class="serif">Ваш путь в мир чая</h2>
+            </div>
+        </div>
+
+        <div class="discover-grid">
+
+            <article class="discover-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1754557178022-a6333073ac07?w=800"
+                    alt="Подбор чая">
+
+                <div class="discover-content">
+                    <span class="eyebrow">Персональный выбор</span>
+                    <h3 class="serif">Найдите свой вкус</h3>
+                    <p>
+                        Небольшое путешествие по вашим
+                        вкусовым предпочтениям.
+                    </p>
+                    <a href="tea-guide.html">Подобрать чай ↗</a>
+                </div>
+
+            </article>
+
+
+            <article class="discover-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1648489350008-4e77e9c675d0?w=800"
+                    alt="История чая">
+
+                <div class="discover-content">
+                    <span class="eyebrow">Традиции и культура</span>
+                    <h3 class="serif">История в каждой чашке</h3>
+                    <p>
+                        Узнайте, как чай стал частью
+                        культуры разных стран.
+                    </p>
+                    <a href="tea-history.html">Исследовать ↗</a>
+                </div>
+
+            </article>
+
+
+            <article class="discover-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1758272256506-b52fac1d17ac?w=800"
+                    alt="Отзывы покупателей">
+
+                <div class="discover-content">
+                    <span class="eyebrow">Впечатления</span>
+                    <h3 class="serif">Слова наших гостей</h3>
+                    <p>
+                        Прочитайте впечатления других
+                        любителей чая.
+                    </p>
+                    <a href="reviews.html">Читать отзывы ↗</a>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- REVIEWS -->
+<section class="reviews">
+    <div class="container-premium">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">Ваши впечатления</span>
+                <h2 class="serif">Тёплые слова о чае</h2>
+            </div>
+
+            <a href="reviews.html" class="minimal-link">
+                Все отзывы ↗
+            </a>
+        </div>
+
+        <div class="review-grid">
+
+            <article class="review-card">
+                <div class="review-stars">★★★★★</div>
+
+                <blockquote>
+                    «Очень приятный свежий вкус.
+                    Чай стал моим любимым напитком по утрам».
+                </blockquote>
+
+                <div class="review-name">Анна</div>
+                <div class="review-product">Зелёный чай Сенча</div>
+            </article>
+
+
+            <article class="review-card">
+                <div class="review-stars">★★★★★</div>
+
+                <blockquote>
+                    «Насыщенный аромат и отличный вкус.
+                    Обязательно закажу ещё».
+                </blockquote>
+
+                <div class="review-name">Александр</div>
+                <div class="review-product">Чёрный чай Ассам</div>
+            </article>
+
+
+            <article class="review-card">
+                <div class="review-stars">★★★★☆</div>
+
+                <blockquote>
+                    «Очень ароматный сбор.
+                    Понравился мягкий вкус и приятный запах».
+                </blockquote>
+
+                <div class="review-name">Мария</div>
+                <div class="review-product">Травяной сбор</div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+
+    <span class="eyebrow">Ваш следующий любимый вкус</span>
+
+    <h2 class="serif">
+        Начните с одной чашки.
+    </h2>
+
+    <p>
+        Откройте коллекцию и найдите чай,
+        который станет частью ваших особенных моментов.
+    </p>
+
+    <a href="catalog.html" class="button-light mt-4">
+        Перейти в каталог
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container-premium">
+
+        <div class="row g-5">
+
+            <div class="col-lg-4">
+                <div class="footer-brand">ЧАЙНЫЙ КЛУБ</div>
+                <p class="footer-description">
+                    Пространство чайной культуры,
+                    выразительных вкусов и особенных ритуалов.
+                </p>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h4>Магазин</h4>
+                <div class="footer-links">
+                    <a href="catalog.html">Каталог</a>
+                    <a href="favorites.html">Избранное</a>
+                    <a href="cart.html">Корзина</a>
+                    <a href="product.html">Товар</a>
+                    <a href="order.html">Заказ</a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <h4>Мир чая</h4>
+                <div class="footer-links">
+                    <a href="ceremony.html">Церемонии</a>
+                    <a href="tea-guide.html">Подбор чая</a>
+                    <a href="tea-history.html">История чая</a>
+                    <a href="reviews.html">Отзывы</a>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <h4>Информация</h4>
+                <div class="footer-links">
+                    <a href="contacts.html">Контакты</a>
+                    <a href="index.html">О клубе</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Чайный клуб</span>
+            <span>ИСКУССТВО НАСТОЯЩЕГО ЧАЯ</span>
+        </div>
+
+    </div>
 </footer>
-
+<div data-site-credits></div>
+<script src="js/components.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,171 @@
+/* Общие компоненты сайта. Именование собственных классов — БЭМ. */
+:root {
+  --site-color-ink: #242b22;
+  --site-color-dark: #303a2e;
+  --site-color-cream: #f5f2ea;
+  --site-color-paper: #ebe7dc;
+  --site-color-muted: #77786e;
+  --site-color-gold: #aa9162;
+  --site-color-line: rgba(36, 43, 34, .18);
+  --site-space-1: 8px;
+  --site-space-2: 16px;
+  --site-space-3: 24px;
+  --site-radius: 2px;
+}
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  background: var(--site-color-cream);
+  border-bottom: 1px solid var(--site-color-line);
+}
+
+.site-header__inner {
+  width: min(1400px, calc(100% - 64px));
+  min-height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--site-space-3);
+}
+
+.site-header__brand {
+  flex: 0 0 auto;
+  color: var(--site-color-dark);
+  font: 700 16px/1.25 "DM Sans", Arial, sans-serif;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.site-header__tagline {
+  display: block;
+  margin-top: 5px;
+  color: var(--site-color-muted);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 17px;
+}
+
+.site-header__link {
+  color: var(--site-color-ink);
+  font: 500 11px/1.5 "DM Sans", Arial, sans-serif;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.site-header__link:hover,
+.site-header__link--active {
+  color: var(--site-color-gold);
+}
+
+.site-header__link:focus-visible,
+.site-header__menu-button:focus-visible {
+  outline: 2px solid var(--site-color-gold);
+  outline-offset: 4px;
+}
+
+.site-header__menu-button {
+  display: none;
+  padding: 10px 14px;
+  border: 1px solid var(--site-color-dark);
+  border-radius: var(--site-radius);
+  background: transparent;
+  color: var(--site-color-dark);
+  font: 600 10px "DM Sans", Arial, sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.site-header__menu-button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.site-breadcrumb {
+  width: min(1400px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 13px 0;
+  color: var(--site-color-muted);
+  font: 10px/1.5 "DM Sans", Arial, sans-serif;
+}
+.site-breadcrumb__link { color: var(--site-color-muted); text-decoration: none; }
+.site-breadcrumb__link:hover { color: var(--site-color-gold); }
+.site-breadcrumb__separator { margin: 0 9px; color: var(--site-color-gold); }
+.site-breadcrumb__current { color: var(--site-color-dark); }
+
+.site-credits {
+  padding: 18px 24px;
+  background: var(--site-color-dark);
+  color: rgba(255,255,255,.68);
+  text-align: center;
+}
+
+.site-credits__text {
+  max-width: 1050px;
+  margin: 0 auto;
+  font: 10px/1.8 "DM Sans", Arial, sans-serif;
+}
+
+/* БЭМ-компоненты формы бронирования. */
+.booking-page { background: var(--site-color-cream); color: var(--site-color-ink); }
+.booking-page__hero { padding: 72px 24px 48px; text-align: center; }
+.booking-page__eyebrow { color: var(--site-color-gold); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
+.booking-page__title { margin: 18px 0; color: var(--site-color-dark); font: 400 clamp(40px, 6vw, 68px)/1.1 "Playfair Display", Georgia, serif; }
+.booking-page__intro { max-width: 620px; margin: 0 auto; color: var(--site-color-muted); font-size: 14px; line-height: 1.8; }
+.booking-page__layout { width: min(1120px, calc(100% - 48px)); margin: 0 auto 90px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: start; }
+.booking-page__info { padding: 34px 0; }
+.booking-page__info-title { margin: 18px 0; color: var(--site-color-dark); font: 400 38px/1.2 "Playfair Display", Georgia, serif; }
+.booking-page__info-text { color: var(--site-color-muted); font-size: 13px; line-height: 1.9; }
+.booking-page__notice { margin-top: 28px; padding: 18px; border-left: 2px solid var(--site-color-gold); background: var(--site-color-paper); color: var(--site-color-muted); font-size: 11px; line-height: 1.8; }
+.booking-form { padding: 38px; background: #fffefa; border: 1px solid var(--site-color-line); }
+.booking-form__title { margin: 0 0 26px; color: var(--site-color-dark); font: 400 30px "Playfair Display", Georgia, serif; }
+.booking-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.booking-form__field { margin-bottom: 18px; }
+.booking-form__field--wide { grid-column: 1 / -1; }
+.booking-form__label { display: block; margin-bottom: 8px; color: var(--site-color-dark); font-size: 11px; font-weight: 600; }
+.booking-form__control { width: 100%; min-height: 48px; padding: 12px 13px; border: 1px solid var(--site-color-line); border-radius: var(--site-radius); background: white; color: var(--site-color-ink); font: 13px "DM Sans", Arial, sans-serif; }
+.booking-form__control:focus { border-color: var(--site-color-gold); outline: 0; box-shadow: 0 0 0 3px rgba(170,145,98,.15); }
+.booking-form__control:focus-visible { outline: 2px solid var(--site-color-gold); outline-offset: 2px; }
+.booking-form__control:disabled { background: #eee; color: #888; cursor: not-allowed; }
+.booking-form__control[aria-invalid="true"] { border-color: #a33b32; }
+.booking-form__consent { display: flex; align-items: flex-start; gap: 10px; margin: 4px 0 20px; color: var(--site-color-muted); font-size: 11px; line-height: 1.6; }
+.booking-form__submit { width: 100%; min-height: 52px; border: 0; background: var(--site-color-dark); color: white; font: 600 10px "DM Sans", Arial, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background .2s ease; }
+.booking-form__submit:hover { background: var(--site-color-gold); }
+.booking-form__submit:focus-visible { outline: 3px solid var(--site-color-gold); outline-offset: 3px; }
+.booking-form__submit:disabled { opacity: .55; cursor: not-allowed; }
+.booking-form__hint { margin: 14px 0 0; color: var(--site-color-muted); font-size: 10px; line-height: 1.7; }
+.booking-dialog { width: min(440px, calc(100% - 32px)); padding: 38px; border: 1px solid var(--site-color-line); background: var(--site-color-cream); color: var(--site-color-ink); text-align: center; }
+.booking-dialog::backdrop { background: rgba(20, 27, 21, .72); }
+.booking-dialog__title { color: var(--site-color-dark); font: 400 30px "Playfair Display", Georgia, serif; }
+.booking-dialog__text { color: var(--site-color-muted); font-size: 13px; line-height: 1.8; }
+.booking-dialog__close { margin-top: 16px; padding: 13px 24px; border: 0; background: var(--site-color-dark); color: white; cursor: pointer; }
+
+@media (max-width: 1100px) {
+  .site-header__inner { width: min(100% - 40px, 1400px); flex-wrap: wrap; padding: 16px 0; }
+  .site-header__nav { gap: 8px 12px; }
+}
+@media (max-width: 760px) {
+  .site-header__inner { min-height: 72px; }
+  .site-header__menu-button { display: block; }
+  .site-header__nav { display: none; flex: 1 0 100%; flex-direction: column; align-items: flex-start; padding: 12px 0 8px; }
+  .site-header__nav--open { display: flex; }
+  .site-header__link { font-size: 13px; padding: 3px 0; }
+  .booking-page__layout { grid-template-columns: 1fr; gap: 22px; }
+  .booking-page__hero { padding-top: 52px; }
+  .booking-form { padding: 25px 20px; }
+}
+@media (max-width: 480px) {
+  .site-header__inner { width: calc(100% - 32px); }
+  .site-breadcrumb { width: calc(100% - 32px); }
+  .booking-form__grid { grid-template-columns: 1fr; gap: 0; }
+  .booking-form__field--wide { grid-column: auto; }
+}
