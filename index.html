@@ -809,9 +809,60 @@
 
 
 
-<!-- HERO -->
+<!-- INTERACTIVE HERO -->
+<section class="tea-hero" aria-labelledby="tea-hero-title">
+    <img class="tea-hero__backdrop" src="https://images.unsplash.com/photo-1687178888460-5dcbcd5c8c18?w=1800" alt="" aria-hidden="true">
+    <div class="tea-hero__inner">
+        <div class="tea-hero__copy">
+            <span class="tea-hero__eyebrow">Чайный клуб · искусство паузы</span>
+            <h1 class="tea-hero__title" id="tea-hero-title">Пусть момент<br><em>наполнится чаем.</em></h1>
+            <p class="tea-hero__description">Откройте для себя чайные традиции, редкие сорта и маленькие ритуалы, которые возвращают ощущение спокойствия.</p>
+            <div class="tea-hero__actions">
+                <a class="tea-hero__primary" href="booking.html">Забронировать церемонию ↗</a>
+                <a class="tea-hero__secondary" href="catalog.html">Исследовать коллекцию</a>
+            </div>
+        </div>
 
-
+        <div class="tea-pour-scene" data-pour-scene>
+            <div class="tea-pour-scene__halo" aria-hidden="true"></div>
+            <svg class="tea-pour-scene__svg" viewBox="0 0 520 460" role="img" aria-labelledby="pour-title pour-desc">
+                <title id="pour-title">Чайник наливает чай в прозрачную чашку</title>
+                <desc id="pour-desc">Нажмите кнопку, чтобы увидеть анимацию наливающегося янтарного чая.</desc>
+                <defs>
+                    <linearGradient id="glassBody" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".48" stop-color="#e9eee5" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></linearGradient>
+                    <linearGradient id="teaAmber" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e7b96d"/><stop offset="1" stop-color="#9a5929"/></linearGradient>
+                    <linearGradient id="potGlass" x1="0" x2="1"><stop offset="0" stop-color="#f7f4e9" stop-opacity=".32"/><stop offset=".55" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#f7f4e9" stop-opacity=".25"/></linearGradient>
+                    <clipPath id="cupClip"><path d="M235 284 Q238 382 272 393 Q313 406 347 393 Q379 381 382 284 Z"/></clipPath>
+                </defs>
+                <!-- Glass teapot -->
+                <path d="M105 82 Q77 65 69 104 Q62 141 100 155" fill="none" stroke="#e8e5d8" stroke-opacity=".65" stroke-width="12" stroke-linecap="round"/>
+                <path d="M169 93 Q196 64 225 91 L251 133 Q267 156 245 181 L211 205" fill="none" stroke="#e8e5d8" stroke-opacity=".7" stroke-width="13" stroke-linecap="round"/>
+                <path d="M114 88 Q174 59 226 97 Q260 125 235 184 Q211 231 151 224 Q91 216 84 159 Q78 111 114 88Z" fill="url(#potGlass)" stroke="#f2ead8" stroke-opacity=".76" stroke-width="3"/>
+                <path d="M108 150 Q157 174 238 145" fill="none" stroke="#e9bd76" stroke-opacity=".45" stroke-width="3"/>
+                <path d="M139 82 Q162 68 189 80" fill="none" stroke="#f5efdf" stroke-opacity=".65" stroke-width="3" stroke-linecap="round"/>
+                <path d="M245 173 Q268 183 277 210" fill="none" stroke="#f5efdf" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+                <!-- Pouring stream -->
+                <path class="tea-pour-scene__stream" d="M264 205 C278 231 287 253 300 291"/>
+                <!-- Cup -->
+                <path d="M374 306 Q424 288 428 325 Q431 359 381 359" fill="none" stroke="#f1ecdf" stroke-opacity=".7" stroke-width="9"/>
+                <path d="M235 284 Q238 382 272 393 Q313 406 347 393 Q379 381 382 284" fill="url(#glassBody)" stroke="#f3efe3" stroke-opacity=".82" stroke-width="3"/>
+                <g clip-path="url(#cupClip)">
+                    <g class="tea-pour-scene__liquid">
+                        <path d="M225 325 Q305 313 392 325 L392 410 L225 410Z" fill="url(#teaAmber)" opacity=".95"/>
+                        <path d="M225 325 Q305 313 392 325" fill="none" stroke="#f5d79c" stroke-width="3" opacity=".8"/>
+                    </g>
+                </g>
+                <path d="M250 300 Q260 375 281 383" fill="none" stroke="#fff" stroke-opacity=".48" stroke-width="4" stroke-linecap="round"/>
+                <path class="tea-pour-scene__steam" d="M284 270 Q267 246 285 228 Q301 210 286 193"/>
+                <path class="tea-pour-scene__steam" d="M324 268 Q343 245 327 225 Q315 207 333 188" style="animation-delay:.6s"/>
+                <ellipse cx="306" cy="406" rx="95" ry="9" fill="#0e160f" opacity=".2"/>
+            </svg>
+            <button class="tea-hero__pour-button" type="button" data-pour-button>Налить чай</button>
+            <p class="tea-hero__pour-status" data-pour-status aria-live="polite">Нажмите — и наполните чашку.</p>
+            <span class="tea-pour-scene__caption">A moment for yourself · 01</span>
+        </div>
+    </div>
+</section>
 
 <!-- INTRO -->
 <section class="intro">
@@ -830,6 +881,35 @@
             и в удовольствие открывать новые оттенки знакомого вкуса.
         </p>
 
+    </div>
+</section>
+
+
+
+<!-- INTERACTIVE TEA TIMER -->
+<section class="tea-timer-section" aria-labelledby="tea-timer-title">
+    <div class="tea-timer" data-tea-timer>
+        <div class="tea-timer__intro">
+            <span class="tea-timer__eyebrow">Маленький чайный ритуал</span>
+            <h2 class="tea-timer__title" id="tea-timer-title">Время раскрыть вкус.</h2>
+            <p class="tea-timer__description">У каждого сорта свой характер и своё время. Выберите чай — таймер подскажет, когда настой будет готов.</p>
+        </div>
+        <div class="tea-timer__controls">
+            <label class="tea-timer__label" for="teaTimerChoice">Что завариваем сегодня?</label>
+            <select class="tea-timer__select" id="teaTimerChoice" data-tea-choice>
+                <option value="sencha">Сенча — зелёный чай</option>
+                <option value="black">Чёрный чай</option>
+                <option value="white">Белый чай</option>
+                <option value="oolong">Улун</option>
+            </select>
+            <div class="tea-timer__meta"><span>Рекомендуемая температура</span><strong class="tea-timer__temperature" data-tea-temperature>80°C</strong></div>
+            <output class="tea-timer__display" data-timer-display aria-live="off">02:00</output>
+            <div class="tea-timer__buttons">
+                <button class="tea-timer__start" type="button" data-timer-start>Начать заваривание</button>
+                <button class="tea-timer__reset" type="button" data-timer-reset>Сбросить</button>
+            </div>
+            <p class="tea-timer__message" data-timer-message aria-live="polite">Выберите сорт и нажмите «Начать заваривание».</p>
+        </div>
     </div>
 </section>
 
