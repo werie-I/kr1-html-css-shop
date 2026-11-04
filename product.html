@@ -4,101 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Подробная информация о ноутбуке для работы и учёбы.">
-    <title>Ноутбук — Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Зелёный чай Сенча — Чайный клуб</title>
+  <meta name="description" content="Подробная информация о чае из коллекции Чайного клуба.">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/site-components.css">
 </head>
-
 <body>
+<div data-site-header></div>
 
-<header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">
-            Учебный интернет-магазин
-        </a>
 
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформление заказа</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<!-- Навигация -->
 
-<main class="page-content">
 
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
-        <span class="breadcrumbs__current">Ноутбук</span>
+<main class="container my-5">
+
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="catalog.html">Чайная карта</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Зелёный чай Сенча
+            </li>
+        </ol>
     </nav>
 
-    <section class="section product-detail">
-        <h1 class="section__title">Ноутбук для работы и учёбы</h1>
+    <!-- Основная информация о товаре -->
+    <div class="row g-4">
 
-        <div class="product-detail__layout">
-            <div class="product-detail__image-placeholder" role="img" aria-label="Изображение ноутбука">
-                Изображение ноутбука
-            </div>
-
-            <div class="product-detail__info">
-                <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
-
-                <p class="product-detail__description">
-                    Универсальный ноутбук для учёбы, работы с документами,
-                    просмотра видео и повседневных задач.
-                </p>
-
-                <p class="product-card__price">Цена: 70 000 руб.</p>
-
-                <h2 class="product-detail__subtitle">Характеристики</h2>
-
-                <table class="product-table">
-                    <caption>Основные характеристики ноутбука</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Параметр</th>
-                            <th scope="col">Значение</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Категория</td>
-                            <td>Ноутбук</td>
-                        </tr>
-                        <tr>
-                            <td>Назначение</td>
-                            <td>Работа и учёба</td>
-                        </tr>
-                        <tr>
-                            <td>Экран</td>
-                            <td>15,6 дюйма</td>
-                        </tr>
-                        <tr>
-                            <td>Наличие</td>
-                            <td>В наличии</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <a class="button button--primary product-detail__order-link" href="order.html">
-                    Оформить заказ
-                </a>
+        <!-- Изображение -->
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-sm">
+                <img
+                    src="https://images.unsplash.com/photo-1763617702099-d956f3fd8324?w=900"
+                    class="card-img-top"
+                    alt="Чашка зелёного чая"
+                    style="height: 380px; object-fit: cover;"
+                >
             </div>
         </div>
+
+        <!-- Описание -->
+        <div class="col-12 col-lg-6">
+
+            <span class="badge bg-success mb-3">
+                Популярное
+            </span>
+
+            <h1 class="h2 fw-bold">
+                Зелёный чай Сенча
+            </h1>
+
+            <p class="lead text-secondary">
+                Японский зелёный чай с мягким травяным вкусом
+                и лёгкими свежими нотами.
+            </p>
+
+            <p class="fs-2 fw-bold">
+                450 ₽
+            </p>
+
+            <p>
+                Сенча — один из известных сортов японского зелёного чая.
+                Он отличается свежим ароматом, приятной терпкостью
+                и насыщенным цветом настоя.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 my-4">
+
+                <a href="order.html" class="btn btn-success btn-lg">
+                    Оформить заявку
+                </a>
+
+                <a href="catalog.html" class="btn btn-outline-secondary btn-lg">
+                    Назад в каталог
+                </a>
+
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                Это учебная карточка товара. Информация используется
+                для демонстрации Bootstrap-компонентов.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Характеристики -->
+    <section class="mt-5">
+
+        <h2 class="h4 fw-bold mb-3">
+            Характеристики
+        </h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Страна</th>
+                        <td>Япония</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Тип чая</th>
+                        <td>Зелёный</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Вкус</th>
+                        <td>Свежий, травяной</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Температура заваривания</th>
+                        <td>70–80 °C</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Вес упаковки</th>
+                        <td>100 г</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+    <!-- Часто задаваемые вопросы -->
+    <section class="mt-5">
+
+        <h2 class="h4 fw-bold mb-3">
+            Часто задаваемые вопросы
+        </h2>
+
+        <div class="accordion" id="teaAccordion">
+
+            <!-- Вопрос 1 -->
+            <div class="accordion-item">
+
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#teaOne"
+                        aria-expanded="true"
+                        aria-controls="teaOne"
+                    >
+                        Как правильно заваривать Сенчу?
+                    </button>
+                </h3>
+
+                <div
+                    id="teaOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#teaAccordion"
+                >
+                    <div class="accordion-body">
+                        Рекомендуется использовать воду температурой
+                        70–80 °C и заваривать чай около 1–2 минут.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="accordion-item">
+
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#teaTwo"
+                        aria-expanded="false"
+                        aria-controls="teaTwo"
+                    >
+                        Сколько чая нужно для одной чашки?
+                    </button>
+                </h3>
+
+                <div
+                    id="teaTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#teaAccordion"
+                >
+                    <div class="accordion-body">
+                        Обычно достаточно 2–3 граммов чайных листьев
+                        на одну чашку воды.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Вопрос 3 -->
+            <div class="accordion-item">
+
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#teaThree"
+                        aria-expanded="false"
+                        aria-controls="teaThree"
+                    >
+                        Можно ли записаться на дегустацию?
+                    </button>
+                </h3>
+
+                <div
+                    id="teaThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#teaAccordion"
+                >
+                    <div class="accordion-body">
+                        Да! Перейдите на страницу мероприятий и
+                        заполните форму заявки.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 </main>
 
-<footer class="site-footer">
-    <p class="site-footer__text">
-        &copy; 2026 Учебный интернет-магазин
-    </p>
+<!-- Подвал -->
+<footer class="py-4 mt-5 bg-light">
+    <div class="container text-center">
+        <p class="mb-0 text-secondary">
+            © 2026 Чайный клуб. Все права защищены.
+        </p>
+    </div>
 </footer>
 
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<div data-site-credits></div>
+<script src="js/components.js"></script>
 </body>
+
 </html>
